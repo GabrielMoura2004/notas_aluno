@@ -1,0 +1,35 @@
+@model List<Aluno>
+    <h2> Listagem dos alunos Cadastrado</h2>
+    <table>
+        <thead>
+            <tr>
+                <th> Nome</th>
+                <th>Idade</th>
+                <th>Diciplina</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <body>
+         @foreach(Aluno a in Model)
+         {
+             string color;
+             if(a.EstaAprovado())
+             {
+                 color= "color: green";
+             }
+            else
+            {
+            color= "color:red";
+            }
+         <tr syle=@color;>
+         <td>@a.Nome</td>
+         <td>@a.Idade</td>
+         <td>@a.Disciplina</td>
+         <td>@a.Nota</td>
+         </tr>
+         }
+
+
+        </body>
+    </table>
+     <a asp-action="Cadastro">Cadastrar novo aluno</a>
